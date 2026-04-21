@@ -10,4 +10,4 @@ jobs:
     # CROSS-REPO CALL: Invoking the reusable workflow from the callee repo
     uses: 0x4ghs/poc-callee/.github/workflows/reusable.yml@main
     secrets:
-      POC_SECRET: ${{ secrets.MY_SUPER_SECRET }}
+      POC_SECRET: ${{ secrets.SECRET_FOR_POC }}
