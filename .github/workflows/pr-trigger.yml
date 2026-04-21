@@ -8,6 +8,6 @@ on:
 jobs:
   call-ci:
     # CROSS-REPO CALL: Invoking the reusable workflow from the callee repo
-    uses: YOUR_GITHUB_USERNAME/poc-callee/.github/workflows/reusable.yml@main
+    uses: 0x4ghs/poc-callee/.github/workflows/reusable.yml@main
     secrets:
       POC_SECRET: ${{ secrets.MY_SUPER_SECRET }}
